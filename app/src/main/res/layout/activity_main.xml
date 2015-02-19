@@ -1,22 +1,30 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    <TextView android:text="@string/credits" android:layout_width="wrap_content"
+    <TextView android:text="@string/app_name"
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:layout_gravity="center"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+        android:id="@+id/linearLayout"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_gravity="center"
+        android:paddingTop="35dp"
+        android:paddingBottom="0dp"
         android:weightSum="3"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -24,42 +32,33 @@
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
             android:weightSum="3"
             android:orientation="vertical"
             android:layout_weight="1">
-
-
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/button"
-                android:height="90dp"
+                android:text="@string/zero"
+                android:id="@+id/button0"
+                android:height="100dp"
                 android:width="200dp"
                 android:layout_weight="1" />
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"
+                android:text="@string/three"
                 android:id="@+id/button3"
-                android:height="90dp"
+                android:height="100dp"
                 android:width="200dp"
                 android:layout_weight="1" />
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6"
+                android:text="@string/six"
                 android:id="@+id/button6"
-                android:height="90dp"
+                android:height="100dp"
                 android:width="200dp"
                 android:layout_weight="1" />
-
-
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -68,45 +67,33 @@
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
             android:weightSum="3"
             android:orientation="vertical"
             android:layout_weight="1">
-
-
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="@string/one"
                 android:id="@+id/button1"
-
-                android:layout_below="@+id/textView"
-                android:layout_toRightOf="@+id/button"
-                android:height="90dp"
-                android:width="200dp"
-                android:layout_weight="1"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4"
-                android:id="@+id/button4"
-                android:height="90dp"
-                android:width="200dp"
-                android:layout_weight="1"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="7"
-                android:id="@+id/button7"
-                android:height="90dp"
+                android:height="100dp"
                 android:width="200dp"
                 android:layout_weight="1" />
-
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four"
+                android:id="@+id/button4"
+                android:height="100dp"
+                android:width="200dp"
+                android:layout_weight="1" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seven"
+                android:id="@+id/button7"
+                android:height="100dp"
+                android:width="200dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -115,48 +102,46 @@
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
             android:weightSum="3"
             android:orientation="vertical"
             android:layout_weight="1">
-
-
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"
+                android:text="@string/two"
                 android:id="@+id/button2"
-
-                android:layout_below="@+id/textView"
-                android:height="90dp"
-                android:width="200dp"
-                android:layout_weight="1"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5"
-                android:id="@+id/button5"
-                android:height="90dp"
+                android:height="100dp"
                 android:width="200dp"
                 android:layout_weight="1" />
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8"
+                android:text="@string/five"
+                android:id="@+id/button5"
+                android:height="100dp"
+                android:width="200dp"
+                android:layout_weight="1" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eight"
                 android:id="@+id/button8"
-                android:height="90dp"
+                android:height="100dp"
                 android:width="200dp"
                 android:layout_weight="1"/>
-
-
         </LinearLayout>
-
-
     </LinearLayout>
 
-</RelativeLayout>
+    <TextView
+        android:text="@string/credits"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="50dp"/>
+
+
+</LinearLayout>
+
+
 
