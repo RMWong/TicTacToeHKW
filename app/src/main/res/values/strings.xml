@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tic-Tac Toe</string>
+    <string name="app_name">Tic-Tac-Toe Game</string>
     <string name="turn_player1">Player 1 turn</string>
     <string name="turn_player2">Player 2 turn</string>
     <string name="credits">By Tony Huang, Nixon Kwok, Ryan Wong</string>
