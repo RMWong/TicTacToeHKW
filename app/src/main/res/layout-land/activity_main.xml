@@ -13,6 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
+    <TextView android:text="@string/turn_player"
+        android:id="@+id/turn_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="30dp"/>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:id="@+id/linearLayout"
@@ -20,7 +27,7 @@
         android:paddingStart="130dp"
         android:paddingEnd="130dp"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="35dp"
+        android:paddingTop="0dp"
         android:paddingBottom="0dp"
         android:weightSum="3"
         android:orientation="horizontal"
