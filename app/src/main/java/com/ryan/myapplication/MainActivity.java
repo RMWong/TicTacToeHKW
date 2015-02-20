@@ -77,7 +77,7 @@ public class MainActivity extends ActionBarActivity {
 
                 if (v.isEnabled()) {
                     if (game.turnCounter == 1) {
-                        String tempNumberString = Integer.toString(v.getId()).substring(6);
+                        String tempNumberString = v.getResources().getResourceEntryName(v.getId()).substring(6);
                         int tempLocation = Integer.parseInt(tempNumberString);
                         game.setMove(1, tempLocation);
                         this.clickedButton.setText("X");
@@ -85,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
                         game.turnCounter = 2;
                     }
                     if (game.turnCounter == 2) {
-                        String tempNumberString = Integer.toString(v.getId()).substring(6);
+                        String tempNumberString = v.getResources().getResourceEntryName(v.getId()).substring(6);
                         int tempLocation = Integer.parseInt(tempNumberString);
                         game.setMove(2, tempLocation);
                         this.clickedButton.setText("O");

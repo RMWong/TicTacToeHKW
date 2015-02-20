@@ -15,12 +15,13 @@ public class Board {
     private static int PLAYER_2 = 2;
     private boolean winState = false;
 
-    protected int turnCounter = 1;
+    protected int turnCounter;
 
 
 
     public Board() {
         board = new ArrayList<>();
+        turnCounter = 1;
         for (int i = 0; i < BOARD_SIZE; i++) {
             board.add(EMPTY);
         }
