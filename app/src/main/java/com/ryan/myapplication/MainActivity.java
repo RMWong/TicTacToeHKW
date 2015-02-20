@@ -18,10 +18,6 @@ public class MainActivity extends ActionBarActivity {
 
     private TextView playerTurn;
 
-    public int turnCounter = 1;
-
-
-
 
 
     @Override
@@ -74,27 +70,27 @@ public class MainActivity extends ActionBarActivity {
 
         }
 
-        public void onClick(View view) {
+        public void onClick(View v) {
 
 
             if (!game.checkWin() || !game.checkTie()) {
 
-                if (clickedButton.isEnabled()) {
-                    if (turnCounter == 1) {
-                        int tempLocation = Integer.parseInt(String.valueOf(clickedButton.getId()).substring(5));
-
-                        game.setMove(1, 1);
+                if (v.isEnabled()) {
+                    if (game.turnCounter == 1) {
+                        String tempNumberString = Integer.toString(v.getId()).substring(6);
+                        int tempLocation = Integer.parseInt(tempNumberString);
+                        game.setMove(1, tempLocation);
                         this.clickedButton.setText("X");
                         this.clickedButton.setEnabled(false);
-                        turnCounter = 2;
+                        game.turnCounter = 2;
                     }
-                    if (turnCounter == 2) {
-                        int tempLocation = Integer.parseInt(String.valueOf(clickedButton.getId()).substring(5));
-
-                        game.setMove(2, 2);
+                    if (game.turnCounter == 2) {
+                        String tempNumberString = Integer.toString(v.getId()).substring(6);
+                        int tempLocation = Integer.parseInt(tempNumberString);
+                        game.setMove(2, tempLocation);
                         this.clickedButton.setText("O");
                         this.clickedButton.setEnabled(false);
-                        turnCounter = 1;
+                        game.turnCounter = 1;
                     }
                 }
             }
