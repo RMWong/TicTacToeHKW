@@ -55,6 +55,7 @@ public class MainActivity extends ActionBarActivity {
         for (Button b : buttons) {
 
             b.setEnabled(true);
+            b.setText("");
             b.setOnClickListener(new ButtonClickListener(b));
 
         }
@@ -78,19 +79,19 @@ public class MainActivity extends ActionBarActivity {
 
             if (!game.checkWin() || !game.checkTie()) {
 
-                if (this.clickedButton.isEnabled()) {
+                if (clickedButton.isEnabled()) {
                     if (turnCounter == 1) {
-                        int tempLocation = Integer.parseInt(String.valueOf(clickedButton.getId()).substring(6));
+                        int tempLocation = Integer.parseInt(String.valueOf(clickedButton.getId()).substring(5));
 
-                        game.setMove(1, tempLocation);
+                        game.setMove(1, 1);
                         this.clickedButton.setText("X");
                         this.clickedButton.setEnabled(false);
                         turnCounter = 2;
                     }
                     if (turnCounter == 2) {
-                        int tempLocation = Integer.parseInt(String.valueOf(clickedButton.getId()).substring(6));
+                        int tempLocation = Integer.parseInt(String.valueOf(clickedButton.getId()).substring(5));
 
-                        game.setMove(2, tempLocation);
+                        game.setMove(2, 2);
                         this.clickedButton.setText("O");
                         this.clickedButton.setEnabled(false);
                         turnCounter = 1;
