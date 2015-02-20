@@ -2,6 +2,7 @@ package com.ryan.myapplication;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,8 +73,11 @@ public class MainActivity extends ActionBarActivity {
 
         public void onClick(View v) {
 
-
+        String TAG = "TicTacToe Log Message:";
             if (!game.checkWin() || !game.checkTie()) {
+
+                Log.d(TAG, "checkTie is" + String.valueOf(game.checkTie()));
+                Log.d(TAG, "checkWin is" + String.valueOf(game.checkWin()));
 
                 if (v.isEnabled()) {
                     if (game.turnCounter == 1) {
@@ -83,8 +87,9 @@ public class MainActivity extends ActionBarActivity {
                         this.clickedButton.setText("X");
                         this.clickedButton.setEnabled(false);
                         game.turnCounter = 2;
+
                     }
-                    if (game.turnCounter == 2) {
+                    else if (game.turnCounter == 2) {
                         String tempNumberString = v.getResources().getResourceEntryName(v.getId()).substring(6);
                         int tempLocation = Integer.parseInt(tempNumberString);
                         game.setMove(2, tempLocation);
