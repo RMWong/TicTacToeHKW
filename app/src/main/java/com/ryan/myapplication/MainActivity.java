@@ -16,10 +16,8 @@ public class MainActivity extends ActionBarActivity {
 
     private Board game;
     private ArrayList<Button> buttons;
-
     private TextView playerTurn;
-
-
+    private TextView newGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,46 +37,42 @@ public class MainActivity extends ActionBarActivity {
 
         game = new Board();
         playerTurn = (TextView) findViewById(R.id.turn_player);
-
-        startNewGame();
-
-    }
-
-    public void startNewGame() {
-
-        game.clearBoard();
-        playerTurn.setText("Player 1's turn");
-
         for (Button b : buttons) {
-
             b.setEnabled(true);
             b.setText("");
             b.setOnClickListener(new ButtonClickListener(b));
-
         }
+        game.setCurrentPlayer();
+        playerTurn.setText("Player " + game.getPlayer() + "'s turn");
+    }
 
-
+    public void startNewGame(View v) {
+        game.setCurrentPlayer();
+        int nextPlayer = game.getPlayer();
+        game.clearBoard();
+        playerTurn.setText("Player " + nextPlayer + "'s turn");
+        for (Button b : buttons) {
+            b.setEnabled(true);
+            b.setText("");
+            b.setOnClickListener(new ButtonClickListener(b));
+        }
+        newGame = (TextView) findViewById(R.id.game_over);
+        newGame.setText("");
     }
 
     private class ButtonClickListener implements View.OnClickListener {
 
-
         Button clickedButton;
 
         public ButtonClickListener(Button b) {
-
             this.clickedButton = b;
-
         }
 
         public void onClick(View v) {
-
         String TAG = "TicTacToe Log Message:";
             if (!game.checkWin() || !game.checkTie()) {
-
-                Log.d(TAG, "checkTie is" + String.valueOf(game.checkTie()));
-                Log.d(TAG, "checkWin is" + String.valueOf(game.checkWin()));
-
+                Log.d(TAG, "checkTie is " + String.valueOf(game.checkTie()));
+                Log.d(TAG, "checkWin is " + String.valueOf(game.checkWin()));
                 if (v.isEnabled()) {
                     if (game.turnCounter == 1) {
                         String tempNumberString = v.getResources().getResourceEntryName(v.getId()).substring(6);
@@ -86,23 +80,39 @@ public class MainActivity extends ActionBarActivity {
                         game.setMove(1, tempLocation);
                         this.clickedButton.setText("X");
                         this.clickedButton.setEnabled(false);
-                        game.turnCounter = 2;
-
+                        if (!game.checkTie() && !game.checkWin())
+                            game.turnCounter = 2;
+                        playerTurn.setText("Player " + game.turnCounter + "'s turn");
                     }
                     else if (game.turnCounter == 2) {
                         String tempNumberString = v.getResources().getResourceEntryName(v.getId()).substring(6);
                         int tempLocation = Integer.parseInt(tempNumberString);
                         game.setMove(2, tempLocation);
-                        this.clickedButton.setText("O");
+                        this.clickedButton.setText("O"); //won't register on win click until the whole method completes
                         this.clickedButton.setEnabled(false);
-                        game.turnCounter = 1;
+                        if (!game.checkTie() && !game.checkTie())
+                            game.turnCounter = 1;
+                        playerTurn.setText("Player " + game.turnCounter + "'s turn");
                     }
+                    isGameOver(v);
                 }
             }
-
         }
     }
 
+    public void isGameOver(View v) {
+        if (game.checkWin() || game.checkTie()) {
+            newGame = (TextView) findViewById(R.id.game_over);
+            if (game.checkWin()) {
+                newGame.setText("You win!");
+            }
+            if (game.checkTie()) {
+                newGame.setText("It's a tie!");
+            }
+            for (int i = 0; i < 9; i++)
+                buttons.get(i).setEnabled(false);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -122,7 +132,6 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

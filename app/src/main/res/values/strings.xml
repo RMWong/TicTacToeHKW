@@ -20,5 +20,7 @@
     <string name="seven">7</string>
     <string name="eight">8</string>
 
+    <string name="game_over"></string>
+
 
 </resources>
